@@ -1,3 +1,4 @@
+import 'package:event_app/screens/events_page.dart';
 import 'package:event_app/screens/home.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      home: EventPage(),
     );
   }
 }
