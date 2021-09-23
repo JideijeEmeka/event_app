@@ -1,4 +1,5 @@
 import 'package:event_app/customwidgets/widgets.dart';
+import 'package:event_app/screens/admin_reg.dart';
 import 'package:flutter/material.dart';
 
 class AdminLogin extends StatefulWidget {
@@ -12,7 +13,7 @@ class _AdminLoginState extends State<AdminLogin> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
+      height: 300,
       width: MediaQuery.of(context).size.width * 0.8,
       decoration: BoxDecoration(
           border: Border.all(width: 2, color: Colors.blue),
@@ -39,6 +40,19 @@ class _AdminLoginState extends State<AdminLogin> {
             height: 15,
           ),
           customButton("Login"),
+          SizedBox(
+            height: 20,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AdminReg()));
+            },
+            child: Text(
+              "Register",
+              style: TextStyle(fontSize: 17),
+            ),
+          )
         ],
       ),
     );
