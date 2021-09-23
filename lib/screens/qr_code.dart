@@ -26,17 +26,19 @@ class _QrCodeState extends State<QrCode> {
     return Scaffold(
         body:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      ElevatedButton(
-        onPressed: () async {
-          setState(() {
-            _scan();
-          });
-        },
-        child: Text("Scan Barcode"),
-        style: ElevatedButton.styleFrom(
-            primary: Colors.blue,
-            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-            textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+      Center(
+        child: ElevatedButton(
+          onPressed: () async {
+            setState(() {
+              _scan();
+            });
+          },
+          child: Text("Scan Barcode"),
+          style: ElevatedButton.styleFrom(
+              primary: Colors.blue,
+              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+              textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        ),
       ),
       Text(_data)
     ]));

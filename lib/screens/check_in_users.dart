@@ -15,6 +15,7 @@ class _CheckedInState extends State<CheckedIn> {
   //   final QuerySnapshot qSnap =
   //       await FirebaseFirestore.instance.collection("users").get();
   //   final int users = qSnap.docs.length;
+  //   return users;
   // }
 
   // Future getCount() async {

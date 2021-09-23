@@ -217,7 +217,7 @@ class _UserRegState extends State<UserReg> {
                             ElevatedButton(
                               onPressed: () {
                                 register();
-                                // sendMail();
+                                sendMail();
                               },
                               child: Text("Register"),
                               style: ElevatedButton.styleFrom(
