@@ -1,5 +1,7 @@
 import 'package:event_app/customwidgets/widgets.dart';
 import 'package:event_app/screens/drawer.dart';
+import 'package:event_app/screens/home.dart';
+import 'package:event_app/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class EventPage extends StatefulWidget {
@@ -10,6 +12,14 @@ class EventPage extends StatefulWidget {
 }
 
 class _EventPageState extends State<EventPage> {
+  AuthMethods authMethods = new AuthMethods();
+
+  signOut() {
+    authMethods.signOut();
+    Navigator.pop(context);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +56,18 @@ class _EventPageState extends State<EventPage> {
                 events(context, "Chelsea vs WestHam",
                     "event name: Football match"),
                 SizedBox(height: 25),
-                customButton("Logout"),
+                ElevatedButton(
+                  onPressed: () {
+                    signOut();
+                  },
+                  child: Text("Logout"),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.blue,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      textStyle:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                ),
                 SizedBox(
                   height: 30,
                 ),

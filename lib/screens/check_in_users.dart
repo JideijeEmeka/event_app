@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:event_app/screens/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,24 @@ class CheckedIn extends StatefulWidget {
 }
 
 class _CheckedInState extends State<CheckedIn> {
+  // getallUsers() async {
+  //   final QuerySnapshot qSnap =
+  //       await FirebaseFirestore.instance.collection("users").get();
+  //   final int users = qSnap.docs.length;
+  // }
+
+  // Future getCount() async {
+  //   await FirebaseFirestore.instance
+  //       .collection("users")
+  //       .where('deleted', isEqualTo: false)
+  //       .get()
+  //       .then((value) {
+  //     var count = 0;
+  //     count = value.docs.length;
+  //     return count;
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +48,7 @@ class _CheckedInState extends State<CheckedIn> {
               SizedBox(
                 height: 20,
               ),
-              Text('Backend Number Goes Here',
+              Text("backend",
                   style: TextStyle(
                     fontSize: 18,
                   )),
@@ -41,7 +60,7 @@ class _CheckedInState extends State<CheckedIn> {
               SizedBox(
                 height: 20,
               ),
-              Text('Backend Number Goes Here',
+              Text('0',
                   style: TextStyle(
                     fontSize: 18,
                   )),
