@@ -2,6 +2,8 @@ import 'package:event_app/screens/drawer.dart';
 import 'package:event_app/screens/home.dart';
 import 'package:event_app/services/auth.dart';
 import 'package:event_app/services/database.dart';
+import 'package:event_app/services/google_auth_api.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
@@ -26,15 +28,17 @@ class _UserRegState extends State<UserReg> {
   DatabaseMethods databaseMethods = new DatabaseMethods();
 
   sendMail() async {
-    String username = 'username@gmail.com';
-    String password = 'password';
+    final user = await GoogleAuthApi.signIn();
 
-    final smtpServer = gmail(username, password);
+    if (user == null) return;
+    String email = user.email;
+    final auth = await user.authentication;
+    final accessToken = auth.accessToken!;
+
+    final smtpServer = gmailSaslXoauth2(email, accessToken);
 
     final message = Message()
-      ..from = Address(
-        username,
-      )
+      ..from = Address(email, "Jideije")
       ..recipients.add('lockeroom035@gmail.com')
       // ..ccRecipients.addAll(['destCc1@example.com', 'destCc2@example.com'])
       // ..bccRecipients.add(Address('bccAddress@example.com'))
@@ -213,7 +217,7 @@ class _UserRegState extends State<UserReg> {
                             ElevatedButton(
                               onPressed: () {
                                 register();
-                                sendMail();
+                                // sendMail();
                               },
                               child: Text("Register"),
                               style: ElevatedButton.styleFrom(
