@@ -1,8 +1,10 @@
 import 'package:event_app/screens/events_page.dart';
 import 'package:event_app/screens/home.dart';
+import 'package:event_app/screens/user_reg.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -13,10 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         primarySwatch: Colors.blue,
       ),
-      home: EventPage(),
+      home: Home(),
     );
   }
 }
