@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:event_app/screens/drawer.dart';
+import 'package:event_app/screens/qr_code.dart';
 import 'package:flutter/material.dart';
 
 class CheckedIn extends StatefulWidget {
@@ -68,7 +69,11 @@ class _CheckedInState extends State<CheckedIn> {
                 height: 30,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => QrCode()));
+                },
                 child: Text("Check In"),
                 style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
