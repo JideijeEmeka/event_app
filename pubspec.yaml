@@ -32,6 +32,8 @@ dependencies:
   cloud_firestore: ^2.5.3
   firebase_core: ^1.6.0
   mailer: ^5.0.2
+  google_sign_in: ^5.0.4
+  flutter_barcode_scanner:
 
 dev_dependencies:
   flutter_test:
