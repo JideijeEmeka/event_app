@@ -28,32 +28,36 @@ class _UserRegState extends State<UserReg> {
   DatabaseMethods databaseMethods = new DatabaseMethods();
 
   sendMail() async {
-    final user = await GoogleAuthApi.signIn();
+    if (formKey.currentState!.validate()) {
+      final user = await GoogleAuthApi.signIn();
 
-    if (user == null) return;
-    String email = user.email;
-    final auth = await user.authentication;
-    final accessToken = auth.accessToken!;
+      if (user == null) return;
+      String email = user.email;
+      final auth = await user.authentication;
+      final accessToken = auth.accessToken!;
 
-    final smtpServer = gmailSaslXoauth2(email, accessToken);
+      print("Authenticated: $email ");
 
-    final message = Message()
-      ..from = Address(email, "Jideije")
-      ..recipients.add('lockeroom035@gmail.com')
-      // ..ccRecipients.addAll(['destCc1@example.com', 'destCc2@example.com'])
-      // ..bccRecipients.add(Address('bccAddress@example.com'))
-      ..subject = 'Mail using mailer package :: 😀 :: ${DateTime.now()}'
-      ..text = 'This is the plain text.\nThis is line 2 of the text part.'
-      ..html =
-          "<h1>Write the content here</h1>\n<p>Hey! its easy use html tags for alignment</p>";
+      GoogleAuthApi.signOut();
 
-    try {
-      final sendReport = await send(message, smtpServer);
-      print('Message sent: ' + sendReport.toString());
-    } on MailerException catch (e) {
-      print('Message not sent.');
-      for (var p in e.problems) {
-        print('Problem: ${p.code}: ${p.msg}');
+      final smtpServer = gmailSaslXoauth2(email, accessToken);
+
+      final message = Message()
+        ..from = Address(email, "Jideije")
+        ..recipients.add('lockeroom035@gmail.com')
+        ..subject = 'Mail using mailer package :: 😀 :: ${DateTime.now()}'
+        ..text = 'This is the plain text.\nThis is line 2 of the text part.'
+        ..html =
+            "<h1>Write the content here</h1>\n<p>Hey! its easy use html tags for alignment</p>";
+
+      try {
+        final sendReport = await send(message, smtpServer);
+        print('Message sent: ' + sendReport.toString());
+      } on MailerException catch (e) {
+        print('Message not sent.');
+        for (var p in e.problems) {
+          print('Problem: ${p.code}: ${p.msg}');
+        }
       }
     }
   }
@@ -127,6 +131,7 @@ class _UserRegState extends State<UserReg> {
                   children: [
                     Form(
                         key: formKey,
+                        autovalidateMode: AutovalidateMode.always,
                         child: Column(
                           children: [
                             SizedBox(
