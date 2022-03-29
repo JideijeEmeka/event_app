@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:event_app/screens/drawer.dart';
 import 'package:event_app/screens/qr_code.dart';
 import 'package:flutter/material.dart';

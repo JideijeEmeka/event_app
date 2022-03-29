@@ -1,9 +1,7 @@
-import 'package:event_app/screens/admin_login.dart';
 import 'package:event_app/screens/drawer.dart';
 import 'package:event_app/screens/home.dart';
 import 'package:event_app/services/auth.dart';
 import 'package:event_app/services/database.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AdminReg extends StatefulWidget {

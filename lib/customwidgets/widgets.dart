@@ -1,5 +1,4 @@
 import 'package:event_app/screens/check_in_users.dart';
-import 'package:event_app/screens/home.dart';
 import 'package:flutter/material.dart';
 
 customTextField(String labeltext, String hintText) {
