@@ -1,4 +1,3 @@
-import 'package:event_app/customwidgets/widgets.dart';
 import 'package:event_app/screens/admin_reg.dart';
 import 'package:event_app/screens/events_page.dart';
 import 'package:event_app/services/auth.dart';

@@ -3,7 +3,6 @@ import 'package:event_app/screens/home.dart';
 import 'package:event_app/services/auth.dart';
 import 'package:event_app/services/database.dart';
 import 'package:event_app/services/google_auth_api.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';

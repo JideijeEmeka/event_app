@@ -1,4 +1,3 @@
-import 'package:event_app/screens/admin_login.dart';
 import 'package:event_app/screens/check_in_users.dart';
 import 'package:event_app/screens/events_page.dart';
 import 'package:event_app/screens/home.dart';
